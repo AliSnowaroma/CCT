@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>伪元素测试</title>
+	<link rel ="stylesheet" href="css/pseudo.css" />
+	<style type = "text/css">
+		#myId{height:100px;width:300px;margin:0 auto;background-color: green;}
+		#myId:before {
+			content: "hello world!";
+			display: block;
+			width: 100px;
+			height: 100px;
+			background: red;
+			float:left;
+		}
+
+		/*.red::before { 
+		    content: "red"; 
+		    color: red; 
+		}*/
+		.attr::before{
+			display:block;
+			content:url(https://img.alicdn.com/tfs/TB1w7wiQFXXXXXwXFXXXXXXXXXX-78-85.png);
+			content:attr(data-content);
+			color:red;
+			width:100px;
+			height:100px;
+		}
+
+		.contenturl::before{
+			display:block;
+			content:url(https://img.alicdn.com/tfs/TB1w7wiQFXXXXXwXFXXXXXXXXXX-78-85.png);
+			color:red;
+			background:url(https://img.alicdn.com/tfs/TB1w7wiQFXXXXXwXFXXXXXXXXXX-78-85.png) center center no-repeat;
+			background-size: 100% 100%;
+			width:300px;
+			height:300px;
+		}
+	</style>
+</head>
+<body>
+	<div id="myId">伪元素测试</div>
+	<div class="red">内容内容内容内容</div>
+
+	<div class="attr" id="myattr" data-content = '伪元素data-attr测试'></div>
+
+	<div class="contenturl"></div>
+
+
+
+	<div class="test" data-font='16'></div>
+	<input type="range" id='change-font' />
+	<div class="change-color">改变文字颜色</div>
+
+	<!-- 伪元素计时器 -->
+	<strong>我叫王小二，万万没想到，下面要出现的数字是：</strong> 
+	<div class="counter" ></div>
+	<strong>直接穿越到罗马，这万虐的剧情让我这个客串演员实在承受不住啊！</strong> 
+
+	<!-- 特效 -->
+	<a href="#">我是个超链接</a>
+
+	<!-- 特殊形状 -->
+	<div class="tooltip">I'm a tooltip.</div>
+</body>
+<script type="text/javascript" src="js/pseudo.js"></script>
+</html>

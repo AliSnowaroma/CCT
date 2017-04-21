@@ -1,0 +1,96 @@
+
+
+.red::before { 
+content: "red"; 
+color: red; 
+}
+.green::before { 
+content: "green"; 
+color: green;
+}
+
+
+/*移动鼠标改变伪元素文字大小*/
+.test{
+  display: block;
+}
+.test::before{
+  content:'我是' attr(class) "的::before伪元素,当前字号为" attr(data-font) 'px' ;
+  width: 100%;
+  word-break:break-all;
+  display: block;
+  border:2px solid #ABC;
+  font-size:16px;
+  margin-bottom:10px;
+  white-space:pre;
+}
+.test-red::before{/*改变伪元素内文字颜色的class*/
+  color:red;
+}
+.change-color{
+  display: block;
+  width: 150px;
+  height: 50px;
+  line-height: 50px;
+  text-align:center;
+  background: #EEE;
+  cursor:pointer;
+  -webkit-user-select:none;
+}
+
+
+/*<!-- 伪元素计时器 -->*/
+.counter{counter-reset: wangxiaoer 2; font-size: 24px; font-family: arial black; color: #cd0000; }   
+.counter:before,   
+.counter:after { display: block; content: counter(wangxiaoer); counter-increment: wangxiaoer; } 
+
+
+/*特效*/
+a {
+	margin-left:100px;
+position: relative;
+display: inline-block;
+text-decoration: none;
+color: #000;
+font-size: 32px;
+padding: 5px 10px;
+}
+a::before, a::after { 
+content: "";
+transition: all 0.2s;
+}
+a::before { 
+left: 0;
+}
+a::after { 
+right: 0;
+}
+a:hover::before, a:hover::after { 
+position: absolute;
+}
+a:hover::before { content: "\5B"; left: -20px; }
+a:hover::after { content: "\5D"; right: -20px; }
+
+
+
+/*特殊形状的实现：*/
+.tooltip {
+position: relative;
+display: inline-block;
+padding: 5px 10px;
+background: #80D4C8;
+}
+.tooltip:before {
+content: "";
+display: block;
+position: absolute;
+left: 50%;
+margin-left: -5px;
+bottom: -5px;
+width: 0; 
+height: 0; 
+border-left: 5px solid transparent;
+border-right: 5px solid transparent;
+border-top: 5px solid #80D4C8;
+}
+
